@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/hashr-web/static/css/main.073c9b0a.css",
-    "main.js": "/hashr-web/static/js/main.292e670f.js",
+    "main.css": "/hashr-web/static/css/main.39926459.css",
+    "main.js": "/hashr-web/static/js/main.31f22081.js",
     "static/js/787.8dfc42e8.chunk.js": "/hashr-web/static/js/787.8dfc42e8.chunk.js",
-    "static/media/logo.svg": "/hashr-web/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/hashr-web/index.html",
-    "main.073c9b0a.css.map": "/hashr-web/static/css/main.073c9b0a.css.map",
-    "main.292e670f.js.map": "/hashr-web/static/js/main.292e670f.js.map",
+    "main.39926459.css.map": "/hashr-web/static/css/main.39926459.css.map",
+    "main.31f22081.js.map": "/hashr-web/static/js/main.31f22081.js.map",
     "787.8dfc42e8.chunk.js.map": "/hashr-web/static/js/787.8dfc42e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.292e670f.js"
+    "static/css/main.39926459.css",
+    "static/js/main.31f22081.js"
   ]
 }
