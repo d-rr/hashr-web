@@ -6,8 +6,12 @@ function App() {
     <div class="bg-white dark:bg-slate-800 min-h-screen">
       <div class="max-w-screen-lg mx-auto">
         <div class="p-8">
-          <Hero />
-          <Hashr />
+          <div class="mb-8">
+            <Hero />
+          </div>
+          <div class="my-8">
+            <Hashr />
+          </div>
         </div>
       </div>
     </div>
