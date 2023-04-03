@@ -4,7 +4,7 @@ function Hashr() {
     const websiteRef = useRef()
     const masterPasswordRef = useRef()
     const modifierRef = useRef()
-    const [hashedPassword, setHashedPassword] = useState()
+    const [hashedPassword, setHashedPassword] = useState('')
 
     function updateHashedPassword() {
         console.log('update hashed password')
