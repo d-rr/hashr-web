@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import SPH_HashedPassword from "../vendor/SPH_HashedPassword";
+import SPH_DomainExtractor from "../vendor/SPH_DomainExtractor";
 
 function Hashr() {
     const websiteRef = useRef()
@@ -7,9 +9,25 @@ function Hashr() {
     const [hashedPassword, setHashedPassword] = useState('')
 
     function updateHashedPassword() {
-        console.log('update hashed password')
+        console.log('update hashed password');
 
-        setHashedPassword(websiteRef.current.value)
+        let password = masterPasswordRef.current.value;
+        let domain = websiteRef.current.value;
+
+        let cleaned_domain = new SPH_DomainExtractor().extractDomain(domain);
+        let modified_domain = modifyDomain(cleaned_domain);
+        let password_hash = new SPH_HashedPassword(password, modified_domain).toString();
+
+        setHashedPassword(password_hash);
+    }
+
+    function modifyDomain(domain) {
+        let modifier = modifierRef.current.value;
+        if (modifier >= 1) {
+            return domain + ":" + modifier;
+        } else {
+            return domain;
+        }
     }
 
     return (
@@ -44,6 +62,8 @@ function Hashr() {
                         id="modifier"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         defaultValue={0}
+                        min={0}
+                        max={999}
                         required
                         onChange={updateHashedPassword}
                         ref={modifierRef} />
