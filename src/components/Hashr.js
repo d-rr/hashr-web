@@ -76,7 +76,7 @@ function Hashr() {
                     <div>
                         <input
                             type="text"
-                            id="hashed_password"
+                            className="dark:bg-gray-700"
                             value={hashedPassword}
                             readOnly
                             disabled />
