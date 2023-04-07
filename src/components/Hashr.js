@@ -89,17 +89,12 @@ function Hashr() {
                     <div className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         {modifier >= 1 ? "Variant " + modifier : "No modifier"}
                     </div>
-                    <div className="absolute inset-y-0 right-0 flex flex-row">
-                        <button type="button" onClick={decreaseModifier} className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer">
-                            <span className="m-auto text-2xl font-thin">-</span>
+                    <div className="absolute inset-y-0 right-0 flex flex-row m-1.5 divide-x">
+                        <button type="button" onClick={decreaseModifier} className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-12 rounded-l cursor-pointer">
+                            <span className="">-</span>
                         </button>
-                        <input
-                            type="text"
-                            className="max-w-xs w-12 outline-none focus:outline-none text-center bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700 outline-none"
-                            readOnly
-                            value={modifier} />
-                        <button type="button" onClick={increaseModifier} className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
-                            <span className="m-auto text-2xl font-thin">+</span>
+                        <button type="button" onClick={increaseModifier} className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-12 rounded-r cursor-pointer">
+                            <span className="">+</span>
                         </button>
                     </div>
                 </div>
