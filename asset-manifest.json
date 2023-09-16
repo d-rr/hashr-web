@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hashr-web/static/css/main.880c7101.css",
-    "main.js": "/hashr-web/static/js/main.f862ce15.js",
-    "static/js/787.8dfc42e8.chunk.js": "/hashr-web/static/js/787.8dfc42e8.chunk.js",
+    "main.css": "/hashr-web/static/css/main.62cc3521.css",
+    "main.js": "/hashr-web/static/js/main.e1ac067b.js",
+    "static/js/496.1282f749.chunk.js": "/hashr-web/static/js/496.1282f749.chunk.js",
     "index.html": "/hashr-web/index.html",
-    "main.880c7101.css.map": "/hashr-web/static/css/main.880c7101.css.map",
-    "main.f862ce15.js.map": "/hashr-web/static/js/main.f862ce15.js.map",
-    "787.8dfc42e8.chunk.js.map": "/hashr-web/static/js/787.8dfc42e8.chunk.js.map"
+    "main.62cc3521.css.map": "/hashr-web/static/css/main.62cc3521.css.map",
+    "main.e1ac067b.js.map": "/hashr-web/static/js/main.e1ac067b.js.map",
+    "496.1282f749.chunk.js.map": "/hashr-web/static/js/496.1282f749.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.880c7101.css",
-    "static/js/main.f862ce15.js"
+    "static/css/main.62cc3521.css",
+    "static/js/main.e1ac067b.js"
   ]
 }
