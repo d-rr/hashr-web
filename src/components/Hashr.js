@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import History from "./History";
 import SPH_HashedPassword from "../vendor/SPH_HashedPassword";
 import SPH_DomainExtractor from "../vendor/SPH_DomainExtractor";
 
@@ -10,6 +11,7 @@ function Hashr() {
     const [masterPassword, setMasterPassword] = useState(null);
     const [hashedPassword, setHashedPassword] = useState('');
     const [modifier, setModifier] = useState(0);
+    const [historyItems, setHistoryItems] = useState([{'website': "google.com"}, {'website': "apple.com", "modifier": 1}]);
 
     useEffect(updateHashedPassword)
 
@@ -37,8 +39,15 @@ function Hashr() {
 
     function copyToClipboard(event) {
         navigator.clipboard.writeText(hashedPassword);
+
+        const item = {
+            'website': website,
+            'modifier': modifier,
+        };
+        console.log("add history item: " + item.website)
+        setHistoryItems(historyItems => historyItems.concat(item))
+
         console.log("password copied to clipboard");
-        event.preventDefault();
     }
 
     function decreaseModifier() {
@@ -51,6 +60,7 @@ function Hashr() {
 
     return (
         <div>
+            <History items={historyItems} />
             <form>
                 <div className="mb-6 relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
