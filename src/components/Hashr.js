@@ -11,7 +11,11 @@ function Hashr() {
     const [masterPassword, setMasterPassword] = useState(null);
     const [hashedPassword, setHashedPassword] = useState('');
     const [modifier, setModifier] = useState(0);
-    const [historyItems, setHistoryItems] = useState([{'website': "google.com"}, {'website': "apple.com", "modifier": 1}]);
+    const [historyItems, setHistoryItems] = useState([
+        {'domain': 'google.com'}, 
+        {'domain': 'apple.com', 'modifier': 2}, 
+        {'domain': 'microsoft.com', 'modifier': 1},
+    ]);
 
     useEffect(updateHashedPassword)
 
@@ -20,13 +24,18 @@ function Hashr() {
             return;
         }
 
-        console.log('update hashed password with modifier: ' + modifier);
-
-        let cleaned_domain = new SPH_DomainExtractor().extractDomain(website);
-        let modified_domain = modifyDomain(cleaned_domain);
+        let modified_domain = modifyDomain(getCurrentDomain());
         let password_hash = new SPH_HashedPassword(masterPassword, modified_domain).toString();
 
         setHashedPassword(password_hash);
+    }
+
+    function getCurrentDomain() {
+        if (website) {
+            return new SPH_DomainExtractor().extractDomain(website);
+        } else {
+            return "";
+        }
     }
 
     function modifyDomain(domain) {
@@ -37,17 +46,13 @@ function Hashr() {
         }
     }
 
-    function copyToClipboard(event) {
+    function copyToClipboard() {
         navigator.clipboard.writeText(hashedPassword);
 
-        const item = {
-            'website': website,
-            'modifier': modifier,
-        };
-        console.log("add history item: " + item.website)
-        setHistoryItems(historyItems => historyItems.concat(item))
+        let domain = getCurrentDomain()
+        createOrUpdateHistoryItem(domain, modifier)
 
-        console.log("password copied to clipboard");
+        console.log("password copied to clipboard for domain: " + domain);
     }
 
     function decreaseModifier() {
@@ -58,9 +63,29 @@ function Hashr() {
         setModifier(modifier + 1);
     }
 
+    function createOrUpdateHistoryItem(domain, modifier) {
+        let historyItem = historyItems.filter(item => item.domain === domain).pop()
+        if (historyItem) {
+            historyItem.modifier = modifier
+            setHistoryItems(historyItems => historyItems.concat())
+        } else {
+            historyItem = {
+                'domain': domain,
+                'modifier': modifier,
+            }
+            setHistoryItems(historyItems => historyItems.concat(historyItem))
+        }
+    }
+
+    function deleteHistoryItem(domain) {
+        setHistoryItems(historyItems.filter(item => item.domain !== domain))
+
+        console.log("deleted history item for domain: " + domain)
+    }
+
     return (
         <div>
-            <History items={historyItems} />
+            <History items={historyItems} onClick={deleteHistoryItem} />
             <form>
                 <div className="mb-6 relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

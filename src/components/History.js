@@ -5,7 +5,11 @@ function History(props) {
             <h3>History:</h3>
             <ul>
                 {props.items.map((item) => (
-                    <li key={item.website}>{item.website}{item.modifier > 0 && <span> ({item.modifier})</span>}</li>
+                    <li key={item.domain}>
+                        <span>{item.domain}</span>
+                        {item.modifier > 0 && <span> ({item.modifier})</span>}
+                        <button type="button" onClick={() => props.onClick(item.domain)}>X</button>
+                    </li>
                 ))}
             </ul>
         </div>
